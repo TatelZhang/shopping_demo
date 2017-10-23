@@ -1,6 +1,5 @@
-{
-    "success": true,
-    "data": [
+{   
+    "parts":[
         {
             "title": "PC产品",
             "products": [
@@ -66,5 +65,5 @@
             "name": "广告发布",
             "url": "null"
         }
-    ]
+    ] 
 }

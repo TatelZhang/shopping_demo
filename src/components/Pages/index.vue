@@ -51,6 +51,7 @@
 <script>
 // import some_data from "../../assets/product.json"
     import slider from '../plugins/slider'
+    import p_data from '../../assets/product'
     export default {
         name: 'firstpage',
         created(){
@@ -65,8 +66,8 @@
         },
         data(){
             return{
-                parts: null,
-                message: null,
+                parts: p_data.parts,
+                message: p_data.message,
                 count: [1, 2, 3, 4],
                 slides: [
                     {   
