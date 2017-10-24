@@ -14,8 +14,8 @@
                   <li><a href="#">社会</a></li>
               </ul>
               <ul class="navbar-nav nav navbar-right">
-                  <li><a href="#">登陆</a></li>
-                  <li><a href="#">注册</a></li>
+                  <li><a href="/login">登陆</a></li>
+                  <li><a href="/regist">注册</a></li>
                   <li><a href="#">关于</a></li>
               </ul>
           </div>

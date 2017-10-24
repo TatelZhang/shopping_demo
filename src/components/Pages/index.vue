@@ -55,14 +55,14 @@
     export default {
         name: 'firstpage',
         created(){
-            var self = this;
-            this.$http.get("/api/parts").then((data)=>{
-                // console.log(data)
-                this.parts = data.data;
-            },(err)=>{console.log("error~!")});
-            this.$http.get("/api/message").then(function(data){
-                this.message = data.data;
-            }, function(err){console.log("error")});
+            // var self = this;
+            // this.$http.get("/api/parts").then((data)=>{
+            //     // console.log(data)
+            //     this.parts = data.data;
+            // },(err)=>{console.log("error~!")});
+            // this.$http.get("/api/message").then(function(data){
+            //     this.message = data.data;
+            // }, function(err){console.log("error")});
         },
         data(){
             return{
