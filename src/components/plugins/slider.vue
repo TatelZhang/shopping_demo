@@ -62,7 +62,7 @@
                     this.isShow = true;
                     this.curr = index;
                     
-                }, 10);
+                }, 0);
             },
             autoRun(){
                 this.runId = setInterval(()=>{
