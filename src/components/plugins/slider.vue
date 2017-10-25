@@ -62,7 +62,7 @@
                     this.isShow = true;
                     this.curr = index;
                     
-                }, 0);
+                }, 10);
             },
             autoRun(){
                 this.runId = setInterval(()=>{
@@ -132,7 +132,7 @@
         /* margin-top: -29px; */
         background-color: rgba(0, 0, 0, .2);
         opacity: .9;
-        z-index: 100;
+        z-index: 2;
         position: absolute;
         width: 100%;
         bottom: 0px;
@@ -149,7 +149,7 @@
     }
     .point{
         margin: 0;
-        padding-right: 50px;
+        padding-right: 10px;
     }
     .point li{
         display: inline-block;

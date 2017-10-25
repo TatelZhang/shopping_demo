@@ -23,16 +23,6 @@ export default new Router({
       path: '/test',
       name: 'test',
       component: test
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/regist',
-      name: 'regist',
-      component: Regist
     }
   ]
 })
