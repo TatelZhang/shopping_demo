@@ -63,7 +63,7 @@
                     this.error = false;
                     this.errorText = '登录成功~';
                     this.$emit("loginSuccess", this.username);
-                    this.$emit("on-close");
+                    // this.$emit("on-close");
                 }else{
                     this.error = true;
                     

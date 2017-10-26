@@ -3,13 +3,13 @@
       <div class="navbar-inverse ">
           <div class="container">
               <div class="navbar-header">
-                  <a href="/" class="navbar-brand">
+                  <router-link to="/" class="navbar-brand">
                       <img src="../assets/logo.png" alt="" class="logo">
-                  </a>
+                  </router-link>
               </div>
               <ul class="navbar-nav nav">
                   <li class="active"><a href="#">国际</a></li>
-                  <li><a href="/test">测试</a></li>
+                  <li><router-link to="/test">测试</router-link></li>
                   <li><a href="#">熟读</a></li>
                   <li><a href="#">社会</a></li>
               </ul>
@@ -67,7 +67,6 @@ export default{
             isShowLog: false,
             isShowReg: false,
             isShowAbout: false,
-            username: ''
         }
     },
     methods: {
@@ -79,17 +78,26 @@ export default{
             this[target] = true;
         },
         successLogin(data){
-            this.username = data;
+            // this.username = data;
+            this.$store.commit('loginUser', data);
+            // 登录成功，并在1s后关闭模态框。
             setTimeout(()=>{
                 this.isShowLog = false
             }, 1000);
             console.log(data);
+            console.log(this.username);
+
         }
     },
     components: {
         modal,
         login,
         regist
+    },
+    computed:{
+        username(){
+            return this.$store.state.username;
+        }
     }
 }
 </script>

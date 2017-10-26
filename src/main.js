@@ -4,6 +4,7 @@ import Vue from 'vue'
 import layout from './components/layout'
 import router from './router'
 import VueResource from 'vue-resource'
+import store from './store'
 
 Vue.use(VueResource);
 
@@ -11,7 +12,14 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  data:{
+    username: ''
+  },
+  store,
   router,
-  template: '<layout/>',
-  components: { layout }
+  template: '<layout :username="username"/>',
+  components: { layout },
+  mounted(){
+    this.username = this.$store.state.username;
+  }
 })
