@@ -86,11 +86,11 @@ export default{
             setTimeout(()=>{
                 this.isShowLog = false
             }, 1000);
-            console.log(data);
-            console.log(this.username);
+            // console.log(data);
+            // console.log(this.username);
         },
         logOut(){
-            this.$store.state.username = '';
+            this.$store.commit('loginUser', '');
         }
     },
     components: {

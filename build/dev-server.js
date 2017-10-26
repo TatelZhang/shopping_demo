@@ -99,6 +99,17 @@ devMiddleware.waitUntilValid(() => {
   })
 })
 
+
+import apiServer from './api-server'
+
+apiServer.listen(port+1, function(err){
+  if(err){
+    console.log(err)
+    return
+  }
+  console.log("api server listen at http://localhost:"+(port+1))
+});
+
 module.exports = {
   ready: readyPromise,
   close: () => {

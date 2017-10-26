@@ -1,0 +1,69 @@
+{   
+    "parts":[
+        {
+            "title": "PC产品",
+            "products": [
+                {
+                    "name": "数据统计",
+                    "url": "null"
+                },
+                {
+                    "name": "数据预测",
+                    "url": "null"
+                },
+                {
+                    "name": "流量分析",
+                    "url": "null"
+                },
+                {
+                    "name": "广告发布",
+                    "url": "null"
+                }
+            ]
+        },
+        {
+            "title": "应用类",
+            "products": [
+                {
+                    "name": "91助手",
+                    "url": "null"
+                },
+                {
+                    "name": "手机应用",
+                    "url": "null"
+                },
+                {
+                    "name": "音乐盒",
+                    "url": "null"
+                },
+                {
+                    "name": "聊天工具",
+                    "url": "null"
+                },
+                {
+                    "name": "截图工具",
+                    "url": "null"
+                }
+            ],
+            "is_last": true
+        }
+    ],
+    "message": [
+        {
+            "name": "数据统计",
+            "url": "null"
+        },
+        {
+            "name": "数据预测",
+            "url": "null"
+        },
+        {
+            "name": "流量分析",
+            "url": "null"
+        },
+        {
+            "name": "广告发布",
+            "url": "null"
+        }
+    ] 
+}
