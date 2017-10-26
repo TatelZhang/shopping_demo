@@ -1,17 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import LoginStatus from './modules/loginStatus'
+
 Vue.use(Vuex);
 
-var store = new Vuex.Store({
-    state:{
-        username: ''
-    },
-    mutations:{
-        loginUser(state, data){
-            state.username = data;
-        }
+
+
+export default  new Vuex.Store({
+    modules: {
+        LoginStatus
     }
 });
-
-export default store

@@ -12,7 +12,7 @@
                     <div class="input-group">
                         <input :disabled="!phoneIn" type="text" class="form-control" v-model='validate'>
                         <div class="input-group-btn">
-                            <button type="text" @click="getValidate" class="btn btn-default" :disabled="!phoneIn">获取验证码</button>
+                            <button type="text" @click.prevent="getValidate" class="btn btn-default" :disabled="!phoneIn">获取验证码</button>
                         </div>
                     </div>
                 </div>

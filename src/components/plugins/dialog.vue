@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="dialog-modal"> <!-- 根元素，z-index 需要高于父容器其他元素 -->
     <div class="dialog-wrapper" @click="onClose" v-show="isShow"></div> <!-- 加载一个具有透明度的背景，使根元素透明，子元素会继承该透明度 -->
     <transition name="drop">
@@ -10,6 +11,7 @@
         </div>
     </transition>
   </div>
+</div>
 </template>
 <script>
     export default {
@@ -27,23 +29,29 @@
     }
 </script>
 <style>
-    .drop-enter-active {
-  transition: all .5s ease;
+.drop-enter-active {
+  transition: all .5s;
 }
 .drop-leave-active {
-  transition: all .3s ease;
+  transition: all .3s;
 }
 .drop-enter {
   transform: translateY(-500px);
 }
 .drop-leave-active {
   transform: translateY(-500px);
-}
-    .dialog-modal, .dialog-wrapper{
+}   
+  
+    .dialog-modal{
+        position: absolute;
+        z-index: 5;
+    }
+    .dialog-wrapper
+    {
         position: fixed;
         height: 100%;
         width: 100%;
-        z-index: 4;
+        z-index: 5;
         top: 0;
         left: 0;
         bottom: 0;
@@ -51,15 +59,16 @@
       
     }
     .dialog-wrapper{
-        background-color: black;
-        opacity: .7;
+        background-color: #eee;
+        opacity: .9;
     }
     .dialog-container{
-        position: relative;
-        z-index: 6;
+        position: fixed;
+        z-index:80;
+        top: 10%;
+        left: 25%;
         width: 50%;
-        margin: 0 auto;
-        margin-top: 50px;
+        /* margin: 0 auto; */
         background-color: #eee;
         border-radius: 3px;
         box-shadow: 0 5px 15px rgba(0,0,0,.5);

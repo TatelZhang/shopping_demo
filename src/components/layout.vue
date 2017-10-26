@@ -16,6 +16,7 @@
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
                   <li v-if="username"><a href="#">用户：{{username}}</a></li>
+                  <li v-if="username" @click="logOut"><a href="#">退出</a></li>
                   <li v-if="!username"><a href="#" @click.prevent="showThis('isShowLog')">登陆</a></li>
                   <li v-if="!username"><a href="#" @click.prevent="showThis('isShowReg')">注册</a></li>
                   <li><a href="#" @click.prevent="showThis('isShowAbout')">关于</a></li>
@@ -48,13 +49,13 @@
               </div>
           </div>
       </footer>
-      <modal @on-close="closeThis('isShowLog')" v-if="isShowLog" :is-show='isShowLog'>
+      <modal @on-close="closeThis('isShowLog')" :is-show='isShowLog'>
           <login @loginSuccess="successLogin"></login>
       </modal>
-      <modal @on-close="closeThis('isShowReg')" v-if="isShowReg" :is-show='isShowReg'>
+      <modal @on-close="closeThis('isShowReg')" :is-show='isShowReg'>
         <regist></regist>
       </modal>
-      <modal @on-close="closeThis('isShowAbout')" v-if="isShowAbout" :is-show='isShowAbout'></modal>
+      <modal @on-close="closeThis('isShowAbout')" :is-show='isShowAbout'></modal>
   </div>
 </template>
 <script>
@@ -73,6 +74,7 @@ export default{
         closeThis(target){
             this[target] = false;
             // console.log(target);
+            // this.$router.push({path: '/test'});
         },
         showThis(target){
             this[target] = true;
@@ -86,7 +88,9 @@ export default{
             }, 1000);
             console.log(data);
             console.log(this.username);
-
+        },
+        logOut(){
+            this.$store.state.username = '';
         }
     },
     components: {
@@ -96,8 +100,11 @@ export default{
     },
     computed:{
         username(){
-            return this.$store.state.username;
+            return this.$store.getters.usr;
         }
+    },
+    mounted(){
+        // console.log(this.$store);
     }
 }
 </script>
