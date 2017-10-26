@@ -2,9 +2,9 @@
     <div id="firstpage">
         <div class="col-md-3">
             <div class="products">
-                <div class="panel panel-success">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <div class="head">全部产品</div>
+                        <div class="head">QQ会员</div>
                     </div>
                     <div class="panel-body">
                         <template v-for='part in parts'>
@@ -16,7 +16,7 @@
                         </template>                        
                     </div>
                 </div>
-                <div class="panel panel-info">
+                <div class="panel panel-danger">
                     <div class="panel-heading">
                         <div>最新消息</div>
                     </div>
@@ -32,18 +32,9 @@
         </div>
         <div class="col-md-9">
             <div class="products-right">
+                <!-- 幻灯片 -->
                 <slider :slides="slides"></slider>
-                <div class="info-box clearfix">
-                    <div class="info-box-item clearfix" v-for="i in count">
-                        <img src="../../assets/doge.png" alt="">
-                        <div class="introduce">
-                            <div class="i-title">开放产品</div>
-                            <div class="desc">开放产品是一款开放的产品</div>
-                            <a href="#" class="btn btn-success">了解更多</a>
-                        </div>
-                    </div>
-                   
-                </div>
+                <pic-box :slides="slides"></pic-box>
             </div>
         </div>
     </div>
@@ -52,8 +43,13 @@
 // import some_data from "../../assets/product.json"
     import slider from '../plugins/slider'
     import p_data from '../../assets/product'
+    import picBox from '../plugins/picbox'
     export default {
         name: 'firstpage',
+        components:{
+            slider,
+            picBox
+        },
         created(){
             // var self = this;
             // this.$http.get("/api/parts").then((data)=>{
@@ -64,42 +60,71 @@
             //     this.message = data.data;
             // }, function(err){console.log("error")});
         },
+        mounted(){
+            // this.$http.get('/api/slideShow').then((res)=>{
+            //     this.slidesshow = res.data;
+            //     console.log(res.data);
+            // },(err)=>{})
+        },
         data(){
             return{
                 parts: p_data.parts,
                 message: p_data.message,
                 count: [1, 2, 3, 4],
+                slidesshow: null,
                 slides: [
                     {   
                         id: 0,
                         src: require('../../assets/1.jpg'),
-                        title: 'some',
+                        title: '天涯明月刀',
                         href: "nothing"
                     },
                     {   
                         id: 1,
                         src: require('../../assets/2.jpg'),
-                        title: 'other',
+                        title: '极品飞车',
                         href: "nothing222"
                     },
                     {   
                         id: 2,
                         src: require('../../assets/3.jpg'),
-                        title: 'else',
+                        title: '使命召唤',
                         href: "nothing33333"
                     },
                     {   
                         id: 3,
                         src: require('../../assets/4.jpg'),
-                        title: 'why',
+                        title: '剑灵',
+                        href: "nothing44444"
+                    },
+                    {   
+                        id: 4,
+                        src: require('../../assets/5.jpg'),
+                        title: '逆战',
+                        href: "nothing44444"
+                    },
+                    {   
+                        id: 5,
+                        src: require('../../assets/6.jpg'),
+                        title: '穿越火线',
+                        href: "nothing44444"
+                    },
+                    {   
+                        id: 6,
+                        src: require('../../assets/7.jpg'),
+                        title: 'DNF',
+                        href: "nothing44444"
+                    },
+                    {   
+                        id: 7,
+                        src: require('../../assets/8.jpg'),
+                        title: '超级会员',
                         href: "nothing44444"
                     },
                 ]
             }
-        },
-        components:{
-            slider
         }
+        
     }
 </script>
 <style>
@@ -107,43 +132,20 @@
     list-style-type: none;
     padding-left: 20px;
 }
+.products, .products div,.products li a, .products div.title{
+    color:black;
+}
 .products .head, .title{
     font-weight: bold;
 }
-#firstpage .title{
-    color: #4983b5
+#firstpage li:hover, #firstpage li a:hover{
+    color: #d30000
 }
+/* #firstpage .title{
+    color: #4983b5
+} */
 .msg-container{
     height: 500px;
-}
-.info-box-item{
-    float: left;
-    width: 48%;
-    background-color: white;
-    margin-bottom: 15px;
-    margin-right: 10px;
-}
-
-.info-box-item img{
-    box-sizing: border-box;
-    float: left;
-    max-width: 200px;
-    height: 150px;
-    padding: 20px;
-}
-.info-box-item .introduce{
-    padding-top: 20px;
-    margin-left: 150px;
-}
-.introduce .i-title{
-    font-size: 16px;
-    font-weight: bold;
-}
-.introduce .btn{
-    margin: auto;
-}
-.info-box-item .desc{
-    padding: 20px 10px;
 }
 .more{
     display: inline-block;
@@ -151,5 +153,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+} 
 </style>

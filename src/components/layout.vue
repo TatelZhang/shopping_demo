@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="navbar-inverse ">
+      <div class="navbar-inverse">
           <div class="container">
               <div class="navbar-header">
                   <router-link to="/" class="navbar-brand">
@@ -8,10 +8,10 @@
                   </router-link>
               </div>
               <ul class="navbar-nav nav">
-                  <li class="active"><a href="#">国际</a></li>
-                  <li><router-link to="/test">测试</router-link></li>
-                  <li><a href="#">熟读</a></li>
-                  <li><a href="#">社会</a></li>
+                  <li class="active"><a href="#">功能特权</a></li>
+                  <li><router-link to="/test">游戏特权</router-link></li>
+                  <li><a href="#">生活特区</a></li>
+                  <li><a href="#">会员特权</a></li>
               </ul>
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
@@ -55,7 +55,12 @@
       <modal @on-close="closeThis('isShowReg')" :is-show='isShowReg'>
         <regist></regist>
       </modal>
-      <modal @on-close="closeThis('isShowAbout')" :is-show='isShowAbout'></modal>
+      <modal @on-close="closeThis('isShowAbout')" :is-show='isShowAbout'>
+            <p>
+                不充钱你是不会变强的
+            </p>
+          
+      </modal>
   </div>
 </template>
 <script>
@@ -110,7 +115,7 @@ export default{
 </script>
 <style>
 body{
-    background-color: #ddd;
+    background-color: #fbfbfb;
 }
 img.logo{
     width: 34px;

@@ -17,7 +17,7 @@ new Vue({
   },
   store,
   router,
-  template: '<layout :username="username"/>',
+  template: '<layout/>',
   components: { layout },
   mounted(){
     this.username = this.$store.state.username;

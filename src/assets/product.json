@@ -1,47 +1,47 @@
 {   
     "parts":[
         {
-            "title": "PC产品",
+            "title": "功能特权",
             "products": [
                 {
-                    "name": "数据统计",
+                    "name": "成长与身份",
                     "url": "null"
                 },
                 {
-                    "name": "数据预测",
+                    "name": "好友与群",
                     "url": "null"
                 },
                 {
-                    "name": "流量分析",
+                    "name": "折扣与优惠",
                     "url": "null"
                 },
                 {
-                    "name": "广告发布",
+                    "name": "装扮与个性",
                     "url": "null"
                 }
             ]
         },
         {
-            "title": "应用类",
+            "title": "游戏特权",
             "products": [
                 {
-                    "name": "91助手",
+                    "name": "竞技游戏",
                     "url": "null"
                 },
                 {
-                    "name": "手机应用",
+                    "name": "动作游戏",
                     "url": "null"
                 },
                 {
-                    "name": "音乐盒",
+                    "name": "角色扮演",
                     "url": "null"
                 },
                 {
-                    "name": "聊天工具",
+                    "name": "休闲游戏",
                     "url": "null"
                 },
                 {
-                    "name": "截图工具",
+                    "name": "手机游戏",
                     "url": "null"
                 }
             ],

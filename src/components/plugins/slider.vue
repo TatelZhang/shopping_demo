@@ -29,7 +29,14 @@
         props: {
             slides:{
                 type: Array,
-                default: []
+                default: [
+                    {
+                        id: 0,
+                        src: '',
+                        title: '',
+                        href: ''
+                    }
+                    ]
             }
         },
         data(){
@@ -111,10 +118,13 @@
     .slider{
         position: relative;
         overflow: hidden;
-        width: 800px;
+        max-width: 100%;
         height: 350px;
         margin-bottom: 13px;
         
+    }
+    .slider, .slider img{
+        border-radius: 3px;
     }
    
     .slider .item{
@@ -127,6 +137,7 @@
         width: 100%;
         height: 350px;
         margin: 0 auto;
+        /* border-radius: 3px; */
     }
     .img-info{
         /* margin-top: -29px; */
