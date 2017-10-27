@@ -44,13 +44,13 @@ export default {
             this.currIndex = index;
         },
         autoRun(){
-            // this.intervalId = setInterval(()=>{
-            //     this.changeCurr(this.nextPic);
-            //     // console.log(this.nextPic);
-            // },2000);
+            this.intervalId = setInterval(()=>{
+                this.changeCurr(this.nextPic);
+                // console.log(this.nextPic);
+            },2000);
         },
         stopRun(){
-            // clearInterval(this.intervalId);
+            clearInterval(this.intervalId);
             // console.log('stop');
         }
     },
@@ -80,7 +80,7 @@ export default {
         }
     },
     mounted(){
-        // this.autoRun();
+        this.autoRun();
     }
 }    
 </script>
@@ -88,6 +88,7 @@ export default {
 #main-slider{
     position: relative;
 }
+
 #main-slider, #main-slider .slider-wrapper, #main-slider .img-container{
     height: 400px;
 }
@@ -95,6 +96,7 @@ export default {
     position: absolute;
     width: 100%;
     z-index: -1;
+    transition: all .3s;
 }
 
 #main-slider ul{ 
@@ -109,13 +111,13 @@ export default {
     transition: all 1s;
 } */
 #main-slider .img-list li{
-    display: none;
+    /* display: none; */
     position: absolute;
     opacity: 0;
     transition: opacity .5s;
 }
 #main-slider .img-list li.on{
-    display: block;
+    /* display: block; */
     opacity: 1;
     
 }

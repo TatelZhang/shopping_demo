@@ -1,7 +1,6 @@
 <template>
   <div> 
       <main-slider :slides="slides"></main-slider>
-      
   </div>
 </template>
 <script>
