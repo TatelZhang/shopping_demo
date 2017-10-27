@@ -46,12 +46,12 @@ export default {
         autoRun(){
             this.intervalId = setInterval(()=>{
                 this.changeCurr(this.nextPic);
-                console.log(this.nextPic)
+                // console.log(this.nextPic);
             },2000);
         },
         stopRun(){
             clearInterval(this.intervalId);
-            console.log('stop');
+            // console.log('stop');
         }
     },
     computed: {

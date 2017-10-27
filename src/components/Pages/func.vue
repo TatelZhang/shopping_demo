@@ -39,6 +39,7 @@
         data(){
             return {
                 currIndex: 0,
+                bgimg: require('../../assets/function_banner.png'),
                 modeLists: [
                     {
                         "title": "最高2000人群",
@@ -109,7 +110,8 @@
         margin-right: -33.5%; */
     }
     .func-header{
-        background: url('../../assets/function_banner.png') no-repeat;
+        /* background: url('../../assets/function_banner.png') no-repeat; */
+        background: url('./static/function_banner.png') no-repeat;
         max-width: 100%;
         min-height: 320px;
         color: white;
