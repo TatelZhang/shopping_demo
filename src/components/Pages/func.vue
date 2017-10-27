@@ -166,6 +166,7 @@
         display: inline-block;
         font-size: 16px;
         margin-bottom: -1px;
+        cursor: pointer;
         
     }
     .vipfuncs .on{
@@ -199,6 +200,7 @@
     }
     .vipfuncs-container ul li:hover{
         border: 1px solid #ccc;
+        /* cursor: pointer; */
     }
     .vipfuncs-container ul li a{
         display: block;

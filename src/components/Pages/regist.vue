@@ -2,6 +2,7 @@
     <div class="login-panel">
         <div class="login-container">
             <h1>注册</h1>
+            <div class="alert" v-show="!msg" :class="{'alert-danger': !msg}">{{msg}}</div>
             <form>
                 <div class="form-group">
                     <label>手机</label>
@@ -37,12 +38,13 @@
                 phoneIn: false,
                 phoneNum: '',
                 validate: '',
-                passwd: ''
+                passwd: '',
+                msg: 'hello'
             }
         },
         watch: {
             phoneNum(){
-                if(/\d{11}/.test(this.phoneNum)){
+                if(/^\d{11}$/.test(this.phoneNum)){
                     this.phoneIn = true;
                 }else{
                     this.phoneIn = false;
@@ -56,7 +58,7 @@
             },
             onRegist(){
                 if(this.phoneIn&&this.validate&&(/\w{6,9}/.test(this.passwd))){
-                    console.log('hello')
+                    // console.log('hello')
                 }
         }
         },

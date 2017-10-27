@@ -44,13 +44,13 @@ export default {
             this.currIndex = index;
         },
         autoRun(){
-            this.intervalId = setInterval(()=>{
-                this.changeCurr(this.nextPic);
-                // console.log(this.nextPic);
-            },2000);
+            // this.intervalId = setInterval(()=>{
+            //     this.changeCurr(this.nextPic);
+            //     // console.log(this.nextPic);
+            // },2000);
         },
         stopRun(){
-            clearInterval(this.intervalId);
+            // clearInterval(this.intervalId);
             // console.log('stop');
         }
     },
@@ -80,7 +80,7 @@ export default {
         }
     },
     mounted(){
-        this.autoRun();
+        // this.autoRun();
     }
 }    
 </script>

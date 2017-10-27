@@ -67,7 +67,8 @@
 <script>
 import modal from './plugins/dialog'
 import login from './Pages/login'
-import regist from './Pages/regist'
+import regist from './Pages/registPage'
+
 export default{
     data(){
         return {
