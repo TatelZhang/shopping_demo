@@ -8,7 +8,8 @@ import test from '../components/test/testcomp1'
 import Login from '../components/Pages/login'
 // 注册页
 import Regist from '../components/Pages/regist'
-
+import FuncPage from '../components/Pages/func'
+import GamePage from '../components/Pages/gamepage'
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +19,16 @@ export default new Router({
       path: '/',
       name: 'index',
       component: IndexPage
+    },
+    {
+      path: '/func',
+      name: 'func',
+      component: FuncPage
+    },
+    {
+      path: '/game',
+      name: 'game',
+      component: GamePage
     },
     {
       path: '/test',

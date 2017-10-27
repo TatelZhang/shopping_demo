@@ -100,8 +100,8 @@ devMiddleware.waitUntilValid(() => {
 })
 
 
-import apiServer from './api-server'
-
+// import {apiServer} from './api-server'
+var apiServer = require('./api-server')
 apiServer.listen(port+1, function(err){
   if(err){
     console.log(err)

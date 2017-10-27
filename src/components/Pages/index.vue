@@ -1,43 +1,50 @@
 <template>
-    <div id="firstpage">
-        <div class="col-md-3">
-            <div class="products">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <div class="head">QQ会员</div>
+<div class="content">
+    <div class="container">
+        <div id="firstpage">
+            <div class="col-md-3">
+                <div class="products">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="head">QQ会员</div>
+                        </div>
+                        <div class="panel-body">
+                            <template v-for='part in parts'>
+                                <div class="title">{{part.title}}</div>
+                                <ul>
+                                    <li v-for="item in part.products"><a :href="item.url">{{ item.name }}</a></li>
+                                </ul>
+                                <hr v-if='!part.is_last'>
+                            </template>                        
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <template v-for='part in parts'>
-                            <div class="title">{{part.title}}</div>
-                            <ul>
-                                <li v-for="item in part.products"><a :href="item.url">{{ item.name }}</a></li>
-                            </ul>
-                            <hr v-if='!part.is_last'>
-                        </template>                        
-                    </div>
-                </div>
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <div>最新消息</div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="msg-container">
-                            <ul>
-                                <li v-for="msg in message"><a :href="msg.url" class="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil sapiente facilis tempore rem voluptas, ratione doloribus expedita, beatae veritatis cupiditate sunt fuga voluptate ipsa aliquam nisi laboriosam autem minus! {{ msg.name }}</a></li>
-                            </ul>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div>最新消息</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="msg-container">
+                                <ul>
+                                    <li v-for="msg in message"><a :href="msg.url" class="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil sapiente facilis tempore rem voluptas, ratione doloribus expedita, beatae veritatis cupiditate sunt fuga voluptate ipsa aliquam nisi laboriosam autem minus! {{ msg.name }}</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-9">
-            <div class="products-right">
-                <!-- 幻灯片 -->
-                <slider :slides="slides"></slider>
-                <pic-box :slides="slides"></pic-box>
+            <div class="col-md-9">
+                <div class="row">
+
+                <div class="products-right">
+                    <!-- 幻灯片 -->
+                    <slider :slides="slides"></slider>
+                    <pic-box :slides="slides"></pic-box>
+                </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </template>
 <script>
 // import some_data from "../../assets/product.json"
@@ -138,7 +145,7 @@
 .products .head, .title{
     font-weight: bold;
 }
-#firstpage li:hover, #firstpage li a:hover{
+.products li:hover, .products li a:hover{
     color: #d30000
 }
 /* #firstpage .title{

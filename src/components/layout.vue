@@ -8,10 +8,10 @@
                   </router-link>
               </div>
               <ul class="navbar-nav nav">
-                  <li class="active"><a href="#">功能特权</a></li>
-                  <li><router-link to="/test">游戏特权</router-link></li>
-                  <li><a href="#">生活特区</a></li>
-                  <li><a href="#">会员特权</a></li>
+                  <li><router-link to="/func">功能特权</router-link></li>
+                  <li><router-link to="/game">游戏特权</router-link></li>
+                  <li><router-link to="#">生活特区</router-link></li>
+                  <li><router-link to="#">会员特权</router-link></li>
               </ul>
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
@@ -23,19 +23,20 @@
               </ul>
           </div>
       </div>
-      <div class="content">
+      <!-- <div class="content">
           <div class="container">
               <keep-alive>
                 <router-view></router-view>
               </keep-alive>
           </div>
-      </div>
+      </div> -->
+      <router-view></router-view>
       <p></p>
       <footer>
           <div class="container">
               <div class="col-md-4">
                     <div class="cpr">
-                        ©<a href="#">Tatel</a> All Rights Reserved 2017 
+                        ©<a href="https://github.com/TatelZhang">Tatel</a> All Rights Reserved 2017 
                     </div> 
               </div>
               <div class="col-md-8">

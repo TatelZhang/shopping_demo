@@ -1,69 +1,77 @@
-{   
-    "parts":[
+{
+    "slideShow": [
         {
-            "title": "PC产品",
-            "products": [
-                {
-                    "name": "数据统计",
-                    "url": "null"
-                },
-                {
-                    "name": "数据预测",
-                    "url": "null"
-                },
-                {
-                    "name": "流量分析",
-                    "url": "null"
-                },
-                {
-                    "name": "广告发布",
-                    "url": "null"
-                }
-            ]
+            "id": 0,
+            "img": "1.jpg",
+            "title": "天涯明月刀",
+            "href": "null"
         },
         {
-            "title": "应用类",
-            "products": [
-                {
-                    "name": "91助手",
-                    "url": "null"
-                },
-                {
-                    "name": "手机应用",
-                    "url": "null"
-                },
-                {
-                    "name": "音乐盒",
-                    "url": "null"
-                },
-                {
-                    "name": "聊天工具",
-                    "url": "null"
-                },
-                {
-                    "name": "截图工具",
-                    "url": "null"
-                }
-            ],
-            "is_last": true
+            "id": 1,
+            "img": "2.jpg",
+            "title": "极品飞车",
+            "href": "null"
+        },
+        {
+            "id": 2,
+            "img": "3.jpg",
+            "title": "使命召唤",
+            "href": "null"
+        },
+        {
+            "id": 3,
+            "img": "4.jpg",
+            "title": "剑灵",
+            "href": "null"
+        },
+        {
+            "id": 4,
+            "img": "5.jpg",
+            "title": "逆战",
+            "href": "null"
+        },
+        {
+            "id": 5,
+            "img": "6.jpg",
+            "title": "穿越火线",
+            "href": "null"
+        },
+        {
+            "id": 6,
+            "img": "7.jpg",
+            "title": "DNF",
+            "href": "null"
+        },
+        {
+            "id": 7,
+            "img": "8.jpg",
+            "title": "超级会员",
+            "href": "null"
         }
     ],
-    "message": [
+    "messages": [
+        
+    ],
+    "modelist": [
         {
-            "name": "数据统计",
-            "url": "null"
+            "title": "最高2000人群",
+            "desc": "独乐乐 不如众乐乐"
         },
         {
-            "name": "数据预测",
-            "url": "null"
+            "title": "成长速度特权",
+            "desc": "拥有飞一般的速度"
         },
         {
-            "name": "流量分析",
-            "url": "null"
+            "title": "QQ等级加速",
+            "desc": "QQ等级更快成长"
         },
         {
-            "name": "广告发布",
-            "url": "null"
+            "title": "云消息漫游",
+            "desc": "漫游聊天 记忆无间"
+        },
+        {
+            "title": "好友上线提醒",
+            "desc": "好友上限立刻知晓"
         }
-    ] 
+    ]
 }

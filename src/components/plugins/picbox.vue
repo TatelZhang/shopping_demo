@@ -46,7 +46,8 @@
     margin-right: 10px; */
 }
 .odd{
-    margin-right: 15px; 
+    /* margin-right: 15px;  */
+    margin-right: 2%; 
 }
 .even{
 }

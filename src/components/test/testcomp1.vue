@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <h1>test 1</h1>
-        <!-- <router-view></router-view> -->
-        <button @click="testShow">点击</button>
-        <testmodal :isShow='isShow' @on-close="testShow"></testmodal>
+    <div class="content">
+        <div class="container">
+            <h1>test 1</h1>
+            <!-- <router-view></router-view> -->
+            <button @click="testShow">点击</button>
+            <testmodal :isShow='isShow' @on-close="testShow"></testmodal>
+        </div>
     </div>
     
 </template>

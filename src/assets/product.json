@@ -5,19 +5,19 @@
             "products": [
                 {
                     "name": "成长与身份",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "好友与群",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "折扣与优惠",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "装扮与个性",
-                    "url": "null"
+                    "url": "/func"
                 }
             ]
         },
@@ -26,23 +26,23 @@
             "products": [
                 {
                     "name": "竞技游戏",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "动作游戏",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "角色扮演",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "休闲游戏",
-                    "url": "null"
+                    "url": "/func"
                 },
                 {
                     "name": "手机游戏",
-                    "url": "null"
+                    "url": "/func"
                 }
             ],
             "is_last": true
@@ -51,19 +51,19 @@
     "message": [
         {
             "name": "数据统计",
-            "url": "null"
+            "url": "/func"
         },
         {
             "name": "数据预测",
-            "url": "null"
+            "url": "/func"
         },
         {
             "name": "流量分析",
-            "url": "null"
+            "url": "/func"
         },
         {
             "name": "广告发布",
-            "url": "null"
+            "url": "/func"
         }
     ] 
 }
