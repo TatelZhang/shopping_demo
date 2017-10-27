@@ -39,7 +39,28 @@
         data(){
             return {
                 currIndex: 0,
-                modeLists: [],
+                modeLists: [
+                    {
+                        "title": "最高2000人群",
+                        "desc": "独乐乐 不如众乐乐"
+                        },
+                        {
+                        "title": "成长速度特权",
+                        "desc": "拥有飞一般的速度"
+                        },
+                        {
+                        "title": "QQ等级加速",
+                        "desc": "QQ等级更快成长"
+                        },
+                        {
+                        "title": "云消息漫游",
+                        "desc": "漫游聊天 记忆无间"
+                        },
+                        {
+                        "title": "好友上线提醒",
+                        "desc": "好友上限立刻知晓"
+                        }
+                ],
                 vipfunc: [
                     {
                         title: "成长与身份",
@@ -75,9 +96,9 @@
             }
         },
         mounted(){
-            this.$http.get("api/modelist").then((data)=>{
-                this.modeLists = data.data;
-            })
+            // this.$http.get("api/modelist").then((data)=>{
+            //     this.modeLists = data.data;
+            // })
         }
     }
 </script>
@@ -107,7 +128,7 @@
         font-weight: 500;
         display: inline-block;
         border-radius: 40px;
-        transition: all .5s;
+        transition: all 1s;
     }
     .kaitong:hover{
         /* color: ; */
