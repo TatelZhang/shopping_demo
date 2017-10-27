@@ -111,7 +111,7 @@
     }
     .func-header{
         /* background: url('../../assets/function_banner.png') no-repeat; */
-        background: url('./static/function_banner.png') no-repeat;
+        /* background: url('../../../static/function_banner.png') no-repeat; */
         max-width: 100%;
         min-height: 320px;
         color: white;
