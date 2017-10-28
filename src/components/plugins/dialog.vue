@@ -59,7 +59,7 @@
       
     }
     .dialog-wrapper{
-        background-color: #eee;
+        background-color: #3a3745;
         opacity: .9;
     }
     .dialog-container{

@@ -25,7 +25,7 @@
                         <div class="panel-body">
                             <div class="msg-container">
                                 <ul>
-                                    <li v-for="msg in message"><a :href="msg.url" class="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nihil sapiente facilis tempore rem voluptas, ratione doloribus expedita, beatae veritatis cupiditate sunt fuga voluptate ipsa aliquam nisi laboriosam autem minus! {{ msg.name }}</a></li>
+                                    <li v-for="msg in message"><a :href="msg.url" class="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. {{ msg.name }}</a></li>
                                 </ul>
                             </div>
                         </div>

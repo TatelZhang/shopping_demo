@@ -47,7 +47,7 @@ export default {
             this.intervalId = setInterval(()=>{
                 this.changeCurr(this.nextPic);
                 // console.log(this.nextPic);
-            },2000);
+            },5000);
         },
         stopRun(){
             clearInterval(this.intervalId);
@@ -96,7 +96,7 @@ export default {
     position: absolute;
     width: 100%;
     z-index: -1;
-    transition: all .3s;
+    transition: all 1s;
 }
 
 #main-slider ul{ 
@@ -114,7 +114,7 @@ export default {
     /* display: none; */
     position: absolute;
     opacity: 0;
-    transition: opacity .5s;
+    transition: opacity 1.5s;
 }
 #main-slider .img-list li.on{
     /* display: block; */

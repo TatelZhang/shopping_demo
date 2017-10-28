@@ -1,7 +1,7 @@
 <template>
     <div id="regist">
         <h1>注册</h1>
-        <form>
+        <form @keydown.enter="submitRegist">
             <div class="form-item">
                 <label>手机</label>
                 <input class="item-input" type="text" v-model.number="phoneNum">
@@ -11,26 +11,29 @@
             <div class="form-item">
                 <label>验证码</label>
                 <input class="item-input" type="text" :disabled="!phoneNumStatus" v-model="validateNum">
-                <button class="item-btn" :disabled="!phoneNumStatus">获取验证码</button>
+                <button class="item-btn" :disabled="!phoneNumStatus" @click.prevent="getValidate">获取验证码</button>
                 <div class="desc">请获取验证码</div>
             </div>
             <div class="form-item">
                 <label>用户名</label>
                 <input class="item-input" type="text" v-model="username">
-                <div class="desc">用户名:"5~8位以英文字母开头"</div>
+                <div class="desc" v-if="!username">用户名:"5~8位以英文字母开头"</div>
+                <div :class="['desc',{'desc-success': usernameStatus}]" v-if="username">{{testUsername}}</div>
             </div>
             <div class="form-item">
                 <label>密码</label>
-                <input class="item-input" type="text" v-model="passwd">
-                <div class="desc">密码为6~18位</div>
+                <input class="item-input" type="password" v-model="passwd">
+                <div class="desc" v-if="!passwd">密码为6~18位</div>
+                <div :class="['desc', {'desc-success': passwdStatus}]" v-if="passwd">{{testPasswd}}</div>
             </div>
             <div class="form-item">
                 <label>确认密码</label>
-                <input class="item-input" type="text" v-model="certpasswd">
-                <div class="desc">请确认密码</div>
+                <input class="item-input" type="password" v-model="certpasswd">
+                <div class="desc" v-if="!certpasswd">请确认密码</div>
+                <div :class="['desc', {'desc-success': certpasswdStatus}]" v-if="certpasswd">{{testCertpasswd}}</div>
             </div>
             <div class="form-item">
-                <button class="item-btn regist">注册</button>
+                <button class="item-btn regist" @click.prevent="submitRegist">注册</button>
             </div>
         </form>
     </div>
@@ -43,8 +46,12 @@
                 phoneNumStatus: false,
                 validateNum: null,
                 username: '',
+                usernameStatus: false,
                 passwd: '',
-                certpasswd: ''
+                passwdStatus: false,
+                certpasswd: '',
+                certpasswdStatus: false,
+                registResult: ""
             }
         },
         computed: {
@@ -58,7 +65,49 @@
                 }
             },
             testUsername(){
-                if(/^[a-zA-Z]\w{4,7}$/.test(this.username)){}
+                if(/^[a-zA-Z]\w{4,7}$/.test(this.username)){
+                    this.usernameStatus = true;
+                    return "用户名可用";
+                }else{
+                    this.usernameStatus = false;
+                    return "请确认";
+                }
+            },
+            testPasswd(){
+                if(/^\w{6,18}$/.test(this.passwd)){
+                    this.passwdStatus = true;
+                    return "密码可用";
+                }else{
+                    this.passwdStatus = false;
+                    if(this.passwd.length<6){
+                        return "密码过短";
+                    }else{
+                        return "密码过长"
+                    }
+                }
+            },
+            testCertpasswd(){
+                if(this.passwdStatus&&(this.passwd === this.certpasswd)){
+                    this.certpasswdStatus = true;
+                    return "验证通过";
+                }else if(!this.passwd){
+                    this.certpasswdStatus = false;
+                    return "请先输入密码"
+                }else{
+                    // this.certpasswd = '';
+                    return "密码不一致"
+                }
+            }
+        },
+        methods: {
+            getValidate(){
+                this.validateNum = this.phoneNum;
+            },
+            submitRegist(){
+                if(this.certpasswdStatus&&this.usernameStatus&&this.phoneNumStatus){
+                    this.$emit('loginSuccess');
+                    this.$store.commit("loginUser", this.username);
+                }
             }
         }
     }

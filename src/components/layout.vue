@@ -10,8 +10,8 @@
               <ul class="navbar-nav nav">
                   <li><router-link to="/func">功能特权</router-link></li>
                   <li><router-link to="/game">游戏特权</router-link></li>
-                  <li><router-link to="#">生活特区</router-link></li>
-                  <li><router-link to="#">会员特权</router-link></li>
+                  <!-- <li><router-link to="#">生活特区</router-link></li>
+                  <li><router-link to="#">会员特权</router-link></li> -->
               </ul>
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
@@ -54,11 +54,11 @@
           <login @loginSuccess="successLogin"></login>
       </modal>
       <modal @on-close="closeThis('isShowReg')" :is-show='isShowReg'>
-        <regist></regist>
+        <regist @loginSuccess="successLogin"></regist>
       </modal>
       <modal @on-close="closeThis('isShowAbout')" :is-show='isShowAbout'>
             <p>
-                不充钱你是不会变强的
+                hello 
             </p>
           
       </modal>
@@ -91,7 +91,8 @@ export default{
             this.$store.commit('loginUser', data);
             // 登录成功，并在1s后关闭模态框。
             setTimeout(()=>{
-                this.isShowLog = false
+                this.isShowLog = false;
+                this.isShowReg = false;
             }, 1000);
             // console.log(data);
             // console.log(this.username);

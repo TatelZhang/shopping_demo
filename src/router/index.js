@@ -16,12 +16,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/func',
       name: 'index',
       component: IndexPage
     },
     {
-      path: '/func',
+      path: '/',
       name: 'func',
       component: FuncPage
     },
