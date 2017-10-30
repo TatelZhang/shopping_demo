@@ -1,16 +1,22 @@
 <template>
   <div> 
       <main-slider :slides="slides"></main-slider>
+      <div class="container">
+          <hot-game></hot-game>
+      </div>
   </div>
 </template>
 <script>
+
     import Slider from '../plugins/slider'
     import MainSlider from '../plugins/mainslider'
+    import hotGame from '../plugins/hotGame'
 
     export default {
         components: {
             Slider,
-            MainSlider
+            MainSlider,
+            hotGame
         },
         data(){
             return {
