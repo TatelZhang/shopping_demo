@@ -79,7 +79,11 @@
                         if(data.status === 200){
 
                             // this.error = false;
-                            this.loginStatus.text = data.body
+                            this.loginStatus.error = false;
+                            this.loginStatus.success = true;
+                            this.loginStatus.text = data.data.text;
+                            this.account.username = data.data.username;
+                            this.$emit("loginSuccess", this.account.username);
                         }else{
                             // this.error = true;
                             // this.errorText = data.body;
@@ -88,8 +92,9 @@
                         console.log("err~~:", err);
                         this.loginStatus.text = err.body;
                         this.loginStatus.error = true;
+                        this.loginStatus.success = false;
                     })
-                    this.$emit("loginSuccess", this.account.username);
+                    
                     // this.$emit("on-close");
                 }else{
                     this.loginStatus.error = true;
@@ -99,8 +104,8 @@
                 
             }
         },
-        Trigger(target){
-            this.$emit(target);
+        mounted(){
+            // this.onSubmit();
         }
     }
 </script>

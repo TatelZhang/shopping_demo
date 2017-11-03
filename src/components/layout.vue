@@ -109,6 +109,8 @@ export default{
     },
     mounted(){
         // console.log(this.$store);
+        // this.$http.post('/api/login')
+        this.$store.dispatch('getUserInfo');
     }
 }
 </script>
