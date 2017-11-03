@@ -9,7 +9,9 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
+    // index: "D:\\project\\koa_server\\dist\\index.html",
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsRoot: 'D:\\project\\koa_server\\dist',
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
     productionSourceMap: true,
@@ -32,7 +34,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api/': "http://127.0.0.1:8081/"
+      '/api/': "http://127.0.0.1:10086/"
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

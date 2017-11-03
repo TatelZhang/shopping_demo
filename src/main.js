@@ -12,14 +12,9 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  data:{
-    username: ''
-  },
   store,
   router,
   template: '<layout/>',
-  components: { layout },
-  mounted(){
-    this.username = this.$store.state.username;
-  }
+  components: { layout }
+  
 })

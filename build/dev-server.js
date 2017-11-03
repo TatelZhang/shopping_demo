@@ -99,8 +99,8 @@ devMiddleware.waitUntilValid(() => {
   })
 })
 
-
 // import {apiServer} from './api-server'
+/**
 var apiServer = require('./api-server')
 apiServer.listen(port+1, function(err){
   if(err){
@@ -108,7 +108,7 @@ apiServer.listen(port+1, function(err){
     return
   }
   console.log("api server listen at http://localhost:"+(port+1))
-});
+}); */
 
 module.exports = {
   ready: readyPromise,

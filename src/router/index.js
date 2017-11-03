@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // 导入首页
 import IndexPage from '../components/Pages/index'
-import test from '../components/test/testcomp1'
+// import test from '../components/test/testcomp1'
+import test from '../components/test/test_form'
 
 // 登录页
 import Login from '../components/Pages/login'

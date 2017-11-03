@@ -3,7 +3,7 @@
   <div class="dialog-modal"> <!-- 根元素，z-index 需要高于父容器其他元素 -->
     <div class="dialog-wrapper" @click="onClose" v-show="isShow"></div> <!-- 加载一个具有透明度的背景，使根元素透明，子元素会继承该透明度 -->
     <transition name="drop">
-        <div class="dialog-container" v-show="isShow">  <!-- 模态框容器，z-index 需要高 -->
+        <div class="dialog-container" v-if="isShow">  <!-- 模态框容器，z-index 需要高 -->
             <span class="close-btn" @click="onClose">x</span>
             <slot>
                 <p>hello</p>

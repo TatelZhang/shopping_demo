@@ -12,6 +12,7 @@
                   <li><router-link to="/game">游戏特权</router-link></li>
                   <!-- <li><router-link to="#">生活特区</router-link></li>
                   <li><router-link to="#">会员特权</router-link></li> -->
+                  <li><router-link to="/test">测试</router-link></li> -->
               </ul>
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
@@ -31,7 +32,8 @@
           </div>
       </div> -->
       <router-view></router-view>
-      <p></p>
+
+
       <footer>
           <div class="container">
               <div class="col-md-4">
@@ -80,22 +82,16 @@ export default{
     methods: {
         closeThis(target){
             this[target] = false;
-            // console.log(target);
-            // this.$router.push({path: '/test'});
         },
         showThis(target){
             this[target] = true;
         },
         successLogin(data){
-            // this.username = data;
             this.$store.commit('loginUser', data);
-            // 登录成功，并在1s后关闭模态框。
             setTimeout(()=>{
                 this.isShowLog = false;
                 this.isShowReg = false;
             }, 1000);
-            // console.log(data);
-            // console.log(this.username);
         },
         logOut(){
             this.$store.commit('loginUser', '');
