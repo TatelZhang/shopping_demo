@@ -24,7 +24,7 @@ const actions = {
         //     }
         // })
         // console.log(this.$http);
-        console.log(context);
+        // console.log(this);
     }
 }
 export default {

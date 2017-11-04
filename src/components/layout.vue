@@ -110,7 +110,10 @@ export default{
     mounted(){
         // console.log(this.$store);
         // this.$http.post('/api/login')
-        this.$store.dispatch('getUserInfo');
+        // this.$store.dispatch('getUserInfo');
+        this.$http.post('/api/login').then((data)=>{
+            console.log(data);
+        })
     }
 }
 </script>
