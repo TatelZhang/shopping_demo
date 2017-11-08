@@ -2,7 +2,7 @@
   <div> 
       <main-slider :slides="slides"></main-slider>
       <div class="container">
-          <hot-game></hot-game>
+          <!-- <hot-game></hot-game> -->
       </div>
   </div>
 </template>

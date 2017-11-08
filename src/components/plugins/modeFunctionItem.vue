@@ -27,7 +27,7 @@
 <style>
     .mode-item{
         box-sizing: border-box;
-        width: 19%;
+        max-width: 18%;
         display: inline-block;
         background-color: white;
         color: black;
@@ -36,16 +36,26 @@
         cursor: pointer;
         border-radius: 3px;
         margin: 0 5px;
+        vertical-align: top;
     }
-    .mode-item:hover .pic{
-        padding: 5px;
+    .mode-item:hover .pic img{
+        max-width: 100%;
+        /* padding: 5px; */
         
+    }
+    .mode-item .pic{
+        margin: 0 auto;
+        height: 180px;
     }
     .mode-item:hover .introduce-tile p{
         font-weight: bold;
     }
     .mode-item .introduce-tile p{
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: normal;
+        -webkit-transition: all 0.5s  ease;
+        -moz-transition: all 0.5s  ease;
+        transition: all 0.5s  ease;
         
     }
     .mode-item .introduce-tile span{
@@ -53,10 +63,13 @@
         color: #666;
     }
     .mode-item .pic{
-        padding: 20px;
+        /* padding: 15px; */
         /* transition: all 1.5s ease; */
     }
     .mode-item .pic img{
-        max-width: 100%;
+        max-width: 80%;
+        -webkit-transition: all .5s  ease;
+        -moz-transition: all .5s  ease;
+        transition: all .5s  ease;
     }
 </style>

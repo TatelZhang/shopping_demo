@@ -11,6 +11,7 @@ import Login from '../components/Pages/login'
 import Regist from '../components/Pages/regist'
 import FuncPage from '../components/Pages/func'
 import GamePage from '../components/Pages/gamepage'
+import NotFoundPage from '../components/Pages/404'
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +36,11 @@ export default new Router({
       path: '/test',
       name: 'test',
       component: test
+    },
+    {
+      path: "*",
+      name: '404',
+      component: NotFoundPage
     }
   ]
 })

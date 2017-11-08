@@ -152,7 +152,7 @@
     color: #4983b5
 } */
 .msg-container{
-    height: 500px;
+    /* height: 500px; */
 }
 .more{
     display: inline-block;

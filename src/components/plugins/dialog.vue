@@ -56,14 +56,13 @@
         left: 0;
         bottom: 0;
         right: 0;
-      
-    }
-    .dialog-wrapper{
         background-color: #3a3745;
         opacity: .9;
     }
+   
     .dialog-container{
         position: fixed;
+        /* position: absolute; */
         z-index:80;
         top: 10%;
         left: 25%;

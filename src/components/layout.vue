@@ -12,14 +12,14 @@
                   <li><router-link to="/game">游戏特权</router-link></li>
                   <!-- <li><router-link to="#">生活特区</router-link></li>
                   <li><router-link to="#">会员特权</router-link></li> -->
-                  <li><router-link to="/test">测试</router-link></li> -->
+                  <!-- <li><router-link to="/test">测试</router-link></li> --> -->
               </ul>
               <ul class="navbar-nav nav navbar-right">
-                  <li v-if="username"><a href="#" class="avatar"><img src="../assets/doge.png" alt=""></a></li>
-                  <li v-if="username"><a href="#">用户：{{username}}</a></li>
-                  <li v-if="username" @click="logOut"><a href="#">退出</a></li>
-                  <li v-if="!username"><a href="#" @click.prevent="showThis('isShowLog')">登陆</a></li>
-                  <li v-if="!username"><a href="#" @click.prevent="showThis('isShowReg')">注册</a></li>
+                  <li v-if="account.isLogin"><a href="#" class="avatar"><img :src="account.avatar" alt="头像"></a></li>
+                  <li v-if="account.isLogin"><a href="#">用户：{{account.username}}</a></li>
+                  <li v-if="account.isLogin" @click="logOut"><a href="#">退出</a></li>
+                  <li v-if="!account.isLogin"><a href="#" @click.prevent="showThis('isShowLog')">登陆</a></li>
+                  <li v-if="!account.isLogin"><a href="#" @click.prevent="showThis('isShowReg')">注册</a></li>
                   <li><a href="#" @click.prevent="showThis('isShowAbout')">关于</a></li>
               </ul>
           </div>
@@ -53,14 +53,15 @@
           </div>
       </footer>
       <modal @on-close="closeThis('isShowLog')" :is-show='isShowLog'>
-          <login @loginSuccess="successLogin"></login>
+          <login @on-close="closeThis('isShowLog')"></login>
       </modal>
       <modal @on-close="closeThis('isShowReg')" :is-show='isShowReg'>
-        <regist @loginSuccess="successLogin"></regist>
+        <regist @on-close="closeThis('isShowReg')"></regist>
       </modal>
       <modal @on-close="closeThis('isShowAbout')" :is-show='isShowAbout'>
             <p>
-                hello 
+                用户名: tatel
+                密码: 123456
             </p>
           
       </modal>
@@ -94,7 +95,12 @@ export default{
             }, 1000);
         },
         logOut(){
-            this.$store.commit('loginUser', '');
+            this.$http.get(this.api+'/login').then(res=>{
+                this.$store.commit('loginUser', res.data);
+            })
+        },
+        test(){
+            console.log(this.account);
         }
     },
     components: {
@@ -103,16 +109,16 @@ export default{
         regist
     },
     computed:{
-        username(){
-            return this.$store.getters.usr;
+        account(){
+            var account = this.$store.getters.account;
+            return account;
         }
     },
     mounted(){
-        // console.log(this.$store);
-        // this.$http.post('/api/login')
-        // this.$store.dispatch('getUserInfo');
-        this.$http.post('/api/login').then((data)=>{
-            console.log(data);
+        this.$http.post(this.api + '/login').then((res)=>{
+            this.$store.commit('loginUser', res.data.account);
+        }).catch((err)=>{
+            console.log("error",err)
         })
     }
 }
@@ -134,6 +140,7 @@ footer{
 }
 footer .cpr{
     padding: 10px 0;
+    float: left;
 } 
 footer, footer a{
     color:#b4b4b4;

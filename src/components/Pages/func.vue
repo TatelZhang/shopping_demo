@@ -150,7 +150,9 @@
         position: relative;
         /* width: 50%; */
         margin:auto;
-        padding: 20px;
+        padding: 15px;
+        vertical-align: top;
+        text-align: center;
     }
     .mainfunc{
         margin-top:30px;

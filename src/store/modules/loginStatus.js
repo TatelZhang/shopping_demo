@@ -1,17 +1,22 @@
 
 const state = {
-    username: ''
+    account:{
+        username: '',
+        avatar:'',
+        isLogin: false
+    }
 }
 
 const getters = {
-    usr(state){
-        return state.username;
+    account(state){
+        return state.account;
     }
 }
 const mutations = {
     loginUser:(state, data)=>{
-        // console.log(state);
-        state.username = data;
+        // state.username = data.username;
+        // state.avatar = data.avatar;
+        state.account = data;
     }
 }
 

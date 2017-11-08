@@ -44,11 +44,6 @@
                 validateStatus: {
                     username: ''
                 }
-                // error: false,
-                // showStatus: false,
-                // errorText: '',
-                // username: '',
-                // passwd: ''
             }
         },
         computed:{
@@ -56,7 +51,7 @@
                if(/^\w{5,10}$/.test(this.account.username)){
                    return true;
                }else{
-                   this.loginStatus.text = "用户名格式错误~"
+                   this.loginStatus.text = "用户名格式:5~10位数字与字母的组合";
                    return false;
                }
            },
@@ -64,7 +59,7 @@
                if(/^\w{6,12}$/.test(this.account.passwd)){
                    return true;
                }else{
-                //    this.errorText = "密码长度为6~12位";
+                   this.loginStatus.text = "密码为6~12位";
                    return false;
                }
            }
@@ -72,40 +67,37 @@
         methods: {
             onSubmit(){
                 if(this.usernameValidate&&this.passwdValidate){
-                    // this.errorText = '登录成功~';
-                    this.$http.post('/api/login',{username: this.account.username, passwd: this.account.passwd})
-                    .then((data)=>{
-                        console.log(data);
-                        if(data.status === 200){
 
+                    this.$http.post('/api/login',{username: this.account.username, passwd: this.account.passwd})
+                    .then((res)=>{
+                        // console.log(res);
+                        if(res.status === 200){
                             // this.error = false;
                             this.loginStatus.error = false;
                             this.loginStatus.success = true;
-                            this.loginStatus.text = data.data.text;
-                            this.account.username = data.data.username;
-                            this.$emit("loginSuccess", this.account.username);
+                            this.loginStatus.text = `北京欢迎您, ${res.data.account.username}`;
+                            this.$store.commit('loginUser', res.data.account);
+                            // 关闭模态框
+                            setTimeout(()=> {
+                                this.$emit('on-close');
+                            }, 1500);
                         }else{
-                            // this.error = true;
-                            // this.errorText = data.body;
                         }
                     }).catch((err)=>{
                         console.log("err~~:", err);
-                        this.loginStatus.text = err.body;
+                        this.loginStatus.text = err.body.errorText;
                         this.loginStatus.error = true;
                         this.loginStatus.success = false;
                     })
                     
-                    // this.$emit("on-close");
                 }else{
                     this.loginStatus.error = true;
-                    // this.errorText = "请输入正确的用户名或密码"
                 }
                 this.loginStatus.error = true;
                 
             }
         },
         mounted(){
-            // this.onSubmit();
         }
     }
 </script>

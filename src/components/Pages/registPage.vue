@@ -10,9 +10,14 @@
             </div>
             <div class="form-item">
                 <label>验证码</label>
-                <input class="item-input" type="text" :disabled="!phoneNumStatus" v-model="validateNum">
-                <button class="item-btn" :disabled="!phoneNumStatus" @click.prevent="getValidate">获取验证码</button>
-                <div class="desc">请获取验证码</div>
+                <input class="item-input" type="text" v-model.lazy="validate.validateNum">
+                <canvas id="validateStr" width="120" height="40" @click="changeValidate" title="看不清楚,换一张"></canvas>
+                <div class="desc" v-if="!validate.validateNum">请输入验证码</div>
+                <div :class="['desc', {'desc-success':validate.validateStatus}]" v-if="validate.validateNum">{{testValidate}}</div>
+                <!-- <a href="#">看不清楚</a> -->
+                <!-- <button class="item-btn" :disabled="!phoneNumStatus" @click.prevent="getValidate">获取验证码</button> -->
+                
+                
             </div>
             <div class="form-item">
                 <label>用户名</label>
@@ -39,12 +44,20 @@
     </div>
 </template>
 <script>
+    var validatepic = require('../../utils/validatepic')
     export default {
         data(){
             return {
                 phoneNum: null,
                 phoneNumStatus: false,
-                validateNum: null,
+                // validateNum: null,
+                // validateNumStatus:false,
+                // validateStr:'',
+                validate: {
+                    validateNum: '',
+                    validateStr:'',
+                    validateStatus: false
+                },
                 username: '',
                 usernameStatus: false,
                 passwd: '',
@@ -58,10 +71,21 @@
             testPhone(){
                 if(/^\d{11}$/.test(this.phoneNum)){
                     this.phoneNumStatus = true;
+                    // this.validateStr = validatepic('validateStr');
                     return 'ok';
                 }else{
                     this.phoneNumStatus = false;
                     return "请确认输入";
+                }
+            },
+            testValidate(){
+                if(this.validate.validateNum.toUpperCase() === this.validate.validateStr){
+                    this.validate.validateStatus = true;
+                    return "验证码通过";
+                }else{
+                    // console.log(this.validate.validateNum.toUpperCase());
+                    this.validate.validateStatus = false;
+                    return "验证码错误" 
                 }
             },
             testUsername(){
@@ -104,11 +128,17 @@
                 this.validateNum = this.phoneNum;
             },
             submitRegist(){
-                if(this.certpasswdStatus&&this.usernameStatus&&this.phoneNumStatus){
+                if(this.certpasswdStatus&&this.usernameStatus&&this.phoneNumStatus&&this.validate.validateStatus){
                     this.$emit('loginSuccess');
-                    this.$store.commit("loginUser", this.username);
+                    this.$store.commit("loginUser", {username:'tatel', isLogin: true});
                 }
+            },
+            changeValidate(){
+                this.validate.validateStr =  validatepic('validateStr');
             }
+        },
+        mounted(){
+            this.validate.validateStr =  validatepic('validateStr');
         }
     }
 </script>
@@ -124,6 +154,15 @@
     }
     #regist .form-item{
         padding: 10px 0;
+        position: relative;
+    }
+    #regist .form-item canvas{
+        cursor: pointer;
+        /* position: absolute; */
+        /* background-color:rebeccapurple; */
+        /* display:inline-block; */
+        /* height: 50px; */
+        /* width: 100px; */
     }
     #regist .form-item label{
         display: inline-block;
