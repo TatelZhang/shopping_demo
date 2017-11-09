@@ -21,9 +21,9 @@
             </div>
             <div class="form-item">
                 <label>用户名</label>
-                <input class="item-input" type="text" v-model="username">
-                <div class="desc" v-if="!username">用户名:"5~8位以英文字母开头"</div>
-                <div :class="['desc',{'desc-success': usernameStatus}]" v-if="username">{{testUsername}}</div>
+                <input class="item-input" type="text" v-model.lazy="username">
+                <div class="desc" v-if="!username">用户名:"4~8位以英文字母开头"</div>
+                <div :class="['desc',{'desc-success': usernameStatus}]" v-if="username">{{usernameRes}}</div>
             </div>
             <div class="form-item">
                 <label>密码</label>
@@ -60,11 +60,17 @@
                 },
                 username: '',
                 usernameStatus: false,
+                usernameRes:'',
                 passwd: '',
                 passwdStatus: false,
                 certpasswd: '',
                 certpasswdStatus: false,
                 registResult: ""
+            }
+        },
+        watch:{
+            username(){
+                this.testUsername;
             }
         },
         computed: {
@@ -89,12 +95,22 @@
                 }
             },
             testUsername(){
-                if(/^[a-zA-Z]\w{4,7}$/.test(this.username)){
-                    this.usernameStatus = true;
-                    return "用户名可用";
+                if(/^[a-zA-Z]\w{3,7}$/.test(this.username)){
+                    this.$http.get('/api/user/'+this.username).then((res)=>{
+                        // console.log(res);
+                        if(res.data){
+                            this.usernameStatus = false;
+                            this.usernameRes =  "用户名已存在";
+                        }else{
+                            this.usernameStatus = true;
+                            this.usernameRes =  "用户名可用"
+                        }
+                    })
+                    // this.usernameStatus = true;
+                    // return "用户名可用";
                 }else{
                     this.usernameStatus = false;
-                    return "请确认";
+                    this.usernameRes =  "用户名为4~8位";
                 }
             },
             testPasswd(){
@@ -124,13 +140,14 @@
             }
         },
         methods: {
-            getValidate(){
-                this.validateNum = this.phoneNum;
-            },
             submitRegist(){
                 if(this.certpasswdStatus&&this.usernameStatus&&this.phoneNumStatus&&this.validate.validateStatus){
-                    this.$emit('loginSuccess');
-                    this.$store.commit("loginUser", {username:'tatel', isLogin: true});
+                    // this.$emit('loginSuccess');
+                    this.$http.post('/api/regist',{username: this.username,passwd: this.passwd,phoneNum: this.phoneNum})
+                    .then((res)=>{
+                        this.$store.commit("loginUser", res.data);
+                        this.$emit('on-close');
+                    })
                 }
             },
             changeValidate(){

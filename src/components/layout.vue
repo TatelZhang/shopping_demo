@@ -118,7 +118,7 @@ export default{
         this.$http.post(this.api + '/login').then((res)=>{
             this.$store.commit('loginUser', res.data.account);
         }).catch((err)=>{
-            console.log("error",err)
+            // console.log("error",err)
         })
     }
 }
