@@ -8,11 +8,11 @@
                   </router-link>
               </div>
               <ul class="navbar-nav nav">
-                  <li><router-link to="/func">功能特权</router-link></li>
+                  <li><router-link to="/func">会员特权</router-link></li>
+                  <li><router-link to="/index">功能特权</router-link></li>
                   <li><router-link to="/game">游戏特权</router-link></li>
-                  <!-- <li><router-link to="#">生活特区</router-link></li>
-                  <li><router-link to="#">会员特权</router-link></li> -->
-                  <!-- <li><router-link to="/test">测试</router-link></li> --> -->
+                  <!-- <li><router-link to="#">生活特区</router-link></li>-->
+                  <!-- <li><router-link to="/test">测试</router-link></li> -->
               </ul>
               <ul class="navbar-nav nav navbar-right">
                   <li v-if="account.isLogin"><a href="#" class="avatar"><img :src="account.avatar" alt="头像"></a></li>
