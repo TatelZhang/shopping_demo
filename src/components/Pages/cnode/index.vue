@@ -3,16 +3,16 @@
         <div class="container">
             <div class="col-md-9">
                 <div class="nav nav-pills" id="menuBar">
-                    <li :class="{'white-color': tab==='all'}"><a href="/?tab=all">全部</a></li>
-                    <li><a href="#">精华</a></li>
-                    <li><a href="#">分享</a></li>
-                    <li><a href="#">问答</a></li>
-                    <li><a href="#">招聘</a></li>
-                    <li><a href="#">客户端测试</a></li>
+                    <li :class="{'white-color': tab==='all'}" @click="changeTab('all')"><a>全部</a></li>
+                    <li :class="{'white-color': tab==='good'}" @click="changeTab('good')"><a>精华</a></li>
+                    <li :class="{'white-color': tab==='share'}" @click="changeTab('share')"><a>分享</a></li>
+                    <li :class="{'white-color': tab==='ask'}" @click="changeTab('ask')"><a>问答</a></li>
+                    <li :class="{'white-color': tab==='job'}" @click="changeTab('job')"><a>招聘</a></li>
+                    <li :class="{'white-color': tab==='dev'}"@click="changeTab('dev')"><a>客户端测试</a></li>
                 </div>
                 <div class="cnode">
                     <page-list :articles="articles"></page-list>
-                    <page-bar :tab="tab"></page-bar>
+                    <pagination :tab="tab"></pagination>
                 </div>
             </div>
             <div class="col-md-3">
@@ -33,7 +33,7 @@
 <script>
 import "./cnodeIndex.css"
 import pageList from './pageList'
-import pageBar from './pageBar'
+import pagination from './pageBar'
 export default  {
     data () {
         return {
@@ -48,21 +48,29 @@ export default  {
             return this.$store.getters.tab;
         }
     },
+    methods: {
+        changeTab (tab) {
+            this.$store.dispatch('changeTab', tab);
+        }
+    },
     components: {
         pageList,
-        pageBar
+        pagination,
     },
     mounted () {
         // console.log(this.$store)
-        // this.$http.get("https://cnodejs.org/api/v1/topics/").then(res=>{
-        //     // console.log(res)
-        //     this.$store.commit("getArticles", res.data.data);
-        // })
-        // .catch(err=>{
-        //     console.log("error")
-        // })
-        var res = require('./res.json')
-        this.$store.commit('getArticles', res.data);
+        this.$http.get("https://cnodejs.org/api/v1/topics/").then(res=>{
+            this.$store.commit("getArticles", res.data.data);
+        })
+        .catch(err=>{
+            console.log("error")
+        })
+        // var res = require('./res.json')
+        // this.$store.commit('getArticles', res.data);
+        // this.$store.dispatch('changeTab', 'share');
     }
 }
 </script>
+<style>
+
+</style>

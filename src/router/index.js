@@ -16,7 +16,7 @@ import NotFoundPage from '../components/Pages/404'
 import cnodeIndex from '../components/Pages/cnode/index'
 import topic from '../components/Pages/cnode/topic'
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/index',

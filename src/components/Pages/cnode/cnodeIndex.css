@@ -1,9 +1,5 @@
-body {
-    background-color: #ddd;
-}
-
 .container {
-    width: 72%;
+    /* width: 72%; */
 }
 
 #menuBar a {
@@ -12,6 +8,7 @@ body {
 
 #menuBar li {
     margin-left: 0px;
+    cursor: pointer;
 }
 
 .user_avatar img {
@@ -42,17 +39,23 @@ div.usr_info {
 #menuBar {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     border: 1px solid #ddd;
     /* border-bottom: 0px; */
 }
 
-.cnode li:hover,
 
-.white-color {
-    background-color: #eee;
+#menuBar li a {
+    border-radius: 0;
 }
 
+#menuBar li a:hover, .white-color{
+    background-color: #ddd;
+}
+
+.cnode li:hover{
+    /* background-color: #eee; */
+}
 span.reply_count {
     height: 30px;
     display: inline-block;

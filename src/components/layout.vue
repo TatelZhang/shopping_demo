@@ -65,12 +65,15 @@
             </p>
           
       </modal>
+      <go-top />
+
   </div>
 </template>
 <script>
 import modal from './plugins/dialog'
 import login from './Pages/login'
 import regist from './Pages/registPage'
+import goTop from './plugins/goTop'
 
 export default{
     data(){
@@ -106,7 +109,9 @@ export default{
     components: {
         modal,
         login,
-        regist
+        regist,
+        goTop
+
     },
     computed:{
         account(){

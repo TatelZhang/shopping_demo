@@ -12,7 +12,7 @@
                             <template v-for='part in parts'>
                                 <div class="title">{{part.title}}</div>
                                 <ul>
-                                    <li v-for="item in part.products"><a :href="item.url">{{ item.name }}</a></li>
+                                    <li v-for="item in part.products"><router-link :to="item.url">{{ item.name }}</router-link></li>
                                 </ul>
                                 <hr v-if='!part.is_last'>
                             </template>                        

@@ -45,7 +45,7 @@
     }
     .mode-item .pic{
         margin: 0 auto;
-        height: 180px;
+        height: 210px;
     }
     .mode-item:hover .introduce-tile p{
         font-weight: bold;

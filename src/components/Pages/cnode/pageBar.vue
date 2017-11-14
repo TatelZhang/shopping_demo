@@ -23,6 +23,8 @@
             jump: function(index){
                 if(typeof(index) === "number"){
                     this.curr_page = index;
+                    this.$store.dispatch('changePage', index);
+                    window.scrollTo(0,0);
                 }
             }
         },
@@ -38,7 +40,6 @@
                 }
                 this.pages = solve.makepage(this.curr_page, this.tab);
                 var tab = this.tab,curr_page = this.curr_page;
-                // eventHub.$emit("fresh",  `/?tab=${tab}&page=${curr_page}`);
             },
             tab: function(){
                 this.pages = solve.makepage(1, this.tab);

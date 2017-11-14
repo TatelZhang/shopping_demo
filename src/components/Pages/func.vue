@@ -196,7 +196,7 @@
         /* margin-top: 10px; */
         /* margin-right: 0.5%; */
         width: 14%;
-        height: 240px;;
+        height: 250px;;
         text-align: center;
         border: solid 1px #fbfbfb;
     }
