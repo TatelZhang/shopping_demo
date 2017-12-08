@@ -13,6 +13,7 @@
                     <span class="count_of_visits" title="点击数">{{item.visit_count}}</span>
                 </span>
                 <span class="share" v-if="item.top">置顶</span>
+                <span class="share" v-else-if="item.tab === 'good'">精华</span>
                 <span class="share" v-else-if="item.tab === 'share'">分享</span>
                 <span class="share gray" v-else-if="item.tab === 'ask'">问答</span>
                 <span class="" v-else></span>
