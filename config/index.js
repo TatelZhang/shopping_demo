@@ -12,8 +12,8 @@ module.exports = {
     // index: "D:\\project\\koa_server\\dist\\index.html",
     assetsRoot: path.resolve(__dirname, '../dist'),
     // assetsRoot: 'D:\\project\\koa_server\\dist',
-    assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsSubDirectory: 'mstatic',
+    assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
