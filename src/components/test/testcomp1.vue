@@ -29,7 +29,7 @@ import testmodal from './dialog1'
                 this.isShow = !this.isShow;
             },
             test1(){
-                this.$http.get('/api/').then((data)=>{
+                this.$http.get('/user/').then((data)=>{
                     console.log(data.data);
                     console.log(typeof data.data);
                 }),(err)=>{console.log(err);}

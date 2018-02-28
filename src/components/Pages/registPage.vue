@@ -96,7 +96,7 @@
             },
             testUsername(){
                 if(/^[a-zA-Z]\w{3,7}$/.test(this.username)){
-                    this.$http.get('/api/user/'+this.username).then((res)=>{
+                    this.$http.get('/user/user/'+this.username).then((res)=>{
                         // console.log(res);
                         if(res.data){
                             this.usernameStatus = false;
@@ -143,7 +143,7 @@
             submitRegist(){
                 if(this.certpasswdStatus&&this.usernameStatus&&this.phoneNumStatus&&this.validate.validateStatus){
                     // this.$emit('loginSuccess');
-                    this.$http.post('/api/regist',{username: this.username,passwd: this.passwd,phoneNum: this.phoneNum})
+                    this.$http.post('/user/regist',{username: this.username,passwd: this.passwd,phoneNum: this.phoneNum})
                     .then((res)=>{
                         this.$store.commit("loginUser", res.data);
                         this.$emit('on-close');

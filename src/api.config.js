@@ -1,3 +1,3 @@
-var api = '/api'
+var api = '/user'
 
 export {api}

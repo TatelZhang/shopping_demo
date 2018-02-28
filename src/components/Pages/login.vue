@@ -68,7 +68,7 @@
             onSubmit(){
                 if(this.usernameValidate&&this.passwdValidate){
 
-                    this.$http.post('/api/login',{username: this.account.username, passwd: this.account.passwd})
+                    this.$http.post('/user/login',{username: this.account.username, passwd: this.account.passwd})
                     .then((res)=>{
                         // console.log(res);
                         if(res.status === 200){
