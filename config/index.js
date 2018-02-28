@@ -10,7 +10,7 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     // index: "D:\\project\\koa_server\\dist\\index.html",
-    assetsRoot: path.resolve(__dirname, '../../dist'),
+    assetsRoot: path.resolve(__dirname, '../../'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
